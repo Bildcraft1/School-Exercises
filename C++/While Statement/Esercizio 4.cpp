@@ -13,7 +13,7 @@ int main() {
     div = input;
     
     while (input % 2 == 0 && input >= 0) {
-        input = input - 2;
+        input = input / 2;
         i = i + 1;
     };
 
