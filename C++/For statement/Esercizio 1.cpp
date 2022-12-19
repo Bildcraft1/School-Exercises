@@ -8,8 +8,11 @@ int main()
     int grandezza, input, max = 0, min = 10, media = 0;
 
     cout << "Esercizio 1" << endl;
-    cout << "Inserire gradezza ciclo: ";
-    cin >> grandezza;
+    do {
+        cout << "Inserire gradezza ciclo: ";
+        cin >> grandezza;
+    } while(grandezza <= 0);
+
 
     for (int n = 0; n < grandezza; n++)
     {
