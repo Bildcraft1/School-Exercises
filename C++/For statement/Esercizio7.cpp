@@ -11,6 +11,7 @@ int main()
     cout << "Inserisci volte da ripetere: ";
     cin >> input;
     
+    cout << "Fibonacci: " << endl;
     for (int n = 0; n < input; n++)
     {
         cout << f1 << " ";
