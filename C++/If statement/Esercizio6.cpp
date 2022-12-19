@@ -16,11 +16,15 @@ int main() {
 	
 	cont = a - b;
 	if (b - c == cont) {
-		cout << "La sequenza è in progressione";
+		cout << "La sequenza è in progressione" <<endl;
 	} else {
-		cout << "La sequenza non è in progressione";
+		cout << "La sequenza non è in progressione" << endl;
 	}
 	
-    system("pause")
+	#ifdef WIN32
+    system("pause");
+	#else
+	#endif
+
     return 0;
 }

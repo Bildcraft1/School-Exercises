@@ -16,6 +16,9 @@ int main() {
     cout << "Temperatura in Farenight " << (9/5) * (temp + 32) << endl;
 
     cout << endl;
+	#ifdef WIN32
     system("pause");
+	#else
+	#endif
     return 0;
 }

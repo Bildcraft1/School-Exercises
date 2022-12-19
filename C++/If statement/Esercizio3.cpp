@@ -22,6 +22,9 @@ int main() {
     };
 
     cout << endl;
+	#ifdef WIN32
     system("pause");
+	#else
+	#endif
     return 0;
 }

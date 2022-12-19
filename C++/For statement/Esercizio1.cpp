@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    int grandezza, input, max = 0, min = 10, media = 0;
+    int grandezza, input, max = 0, min = 0, media = 0;
 
     cout << "Esercizio 1" << endl;
     do {
@@ -19,12 +19,12 @@ int main()
         cout << "Inserisci numero a posizione " << (n + 1) << " : ";
         cin >> input;
 
-        if (input > max)
+        if (input > max || max == 0)
         {
             max = input;
         };
 
-        if (input < min)
+        if (input < min || min == 0)
         {
             min = input;
         };
@@ -37,5 +37,10 @@ int main()
     cout << "Min: " << min << endl;
 
     cout << endl;
+    
+    #ifdef WIN32
+    system("pause");
+	#else
+	#endif
     return 0;
 }
