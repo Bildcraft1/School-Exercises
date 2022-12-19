@@ -19,6 +19,9 @@ int main() {
 
     cout << "Il numero " << div << " e' divisibile " << i << " volte" << endl;
 
+    #ifdef WIN32
+    system("pause");
+	#else
+	#endif
     return 0;
-	
 }

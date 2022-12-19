@@ -12,7 +12,7 @@ int main()
     cin >> input;
 
     for (int i = 0; i < input; i++) {
-        if (input % i == 0) {
+        if (input % (++i) == 0) {
             cout << i << " ";
         }
     }

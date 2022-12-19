@@ -17,6 +17,11 @@ int main() {
     cout << "Somma dei numeri che hai inserito: " << somma << endl;
     cout << "Hai inserito: " << i << " numeri" << endl;
     
+
+    #ifdef WIN32
+    system("pause");
+	#else
+	#endif
     return 0;
 	
 }
