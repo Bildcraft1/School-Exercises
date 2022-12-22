@@ -11,10 +11,13 @@ int main() {
         cin >> prezzo;
     } while(prezzo <= 0);
 
-    do {
+    cout << "Inserire banconota: ";
+    cin >> banconota;
+
+    if (!(banconota == 2 || banconota == 5 || banconota == 10 || banconota == 20 || banconota == 50 || banconota == 100 || banconota == 200 || banconota == 500)) {
         cout << "Inserire banconota: ";
         cin >> banconota;
-    } while(banconota <= 0);
+    }
 
     if (prezzo > banconota) {
         cout << "Soldi non sufficienti" << endl;
