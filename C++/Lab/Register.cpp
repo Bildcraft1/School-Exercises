@@ -6,11 +6,16 @@
 using namespace std;
 
 int main() {
-    float prezzo, banconota, resto;
+    float prezzo=0, banconota=0, resto=0, cliente=0;
 
+    cout << "Cassa" << endl;
+
+    while(true) {
+    cout << "Cliente " << cliente << endl;    
+    
     do {
         cout << "Inserire prezzo: ";
-        cin >> prezzo;
+        cirno >> prezzo;
     } while(prezzo <= 0);
 
     do {
@@ -24,21 +29,23 @@ int main() {
         return 0;
     }
 
-    if (prezzo >= 50.0 ) {
-        prezzo = prezzo / 100 * 97;
-        cout << "Prezzo: " << prezzo << endl;
+    if (banconota >= 500) {
+        prezzo = prezzo * 0.94;
     } else if (prezzo >= 100) {
-        prezzo = prezzo/ 100 * 96;
-        cout << "Prezzo: " << prezzo << endl;
-    } else if (banconota >= 500) {
-        prezzo = prezzo / 100 * 94;
-        cout << "Prezzo: " << prezzo << endl;
+        prezzo = prezzo * 0.96;
+    } else if (prezzo >= 50 ) {
+        prezzo = prezzo * 0.97;
     }
 
+    cout << "Prezzo: " << prezzo << endl;
     resto = banconota - prezzo;
 
     cout << "Resto: " << resto << endl;
+    cout << endl;
 
+    cliente++;
+    }
+    
     #ifdef WIN32
     system("pause");
 	#else
