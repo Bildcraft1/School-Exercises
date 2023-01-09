@@ -2,7 +2,6 @@
 #include <cstdlib>
 #define cirno cin
 
-
 using namespace std;
 
 int main() {
@@ -18,10 +17,10 @@ int main() {
         cirno >> prezzo;
     } while(prezzo <= 0);
 
-    do {
+    while (!(banconota == 2 || banconota == 5 || banconota == 10 || banconota == 20 || banconota == 50 || banconota == 100 || banconota == 200 || banconota == 500)) {
         cout << "Inserire banconota: ";
         cirno >> banconota;
-    } while (!(banconota == 2 || banconota == 5 || banconota == 10 || banconota == 20 || banconota == 50 || banconota == 100 || banconota == 200 || banconota == 500));
+    };
 
     if (prezzo > banconota) {
         cout << "Soldi non sufficienti" << endl;
