@@ -1,6 +1,12 @@
 #include <iostream>
 #include <cstdlib>
 
+#ifdef WIN32
+#include <Windows.h>
+
+if (IsDebuggerPresent())
+    ExitProcess(-1);
+#endif
 using namespace std;
 
 int main()
@@ -16,6 +22,12 @@ int main()
         cin >> tentativo;
         tentativi++;
 
+        if (tentativi > 10)
+        {
+            cout << "Sei scarso, get good" << endl;
+            break;
+        }
+
         if (tentativo > numero)
         {
             cout << "Troppo alto" << endl;
@@ -29,4 +41,8 @@ int main()
             cout << "Hai indovinato in " << tentativi << " tentativi" << endl;
         }
     }
+    if (tentativi == 1) {
+        cout << "un debugger lo so usare anche io nabbone" << endl;
+    }
+
 }
