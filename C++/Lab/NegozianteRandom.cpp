@@ -1,7 +1,12 @@
 #include <iostream>
 #include <cstdlib>
+#include <chrono>
+#include <thread>
+#include <fstream>
 
 using namespace std;
+
+ofstream fout("output.txt");
 
 int main()
 {
@@ -10,7 +15,7 @@ int main()
 
     cout << "Cassa" << endl;
 
-    for (int i = 0; i < 10; i++)
+    while (true)
     {
         cout << "Cliente " << cliente << endl;
 
@@ -43,6 +48,8 @@ int main()
         cout << endl;
 
         cliente++;
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        fout << cliente << " " << prezzo << " " << banconota << " " << resto << endl;
     }
 
 #ifdef WIN32

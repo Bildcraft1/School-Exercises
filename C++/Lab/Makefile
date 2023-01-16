@@ -8,3 +8,6 @@ clean:
 
 negozianterandom: NegozianteRandom.cpp
 	g++ -o build/negozianterandom NegozianteRandom.cpp
+
+indovinanumero: IndovinaNumero.cpp
+	g++ -o build/indovinanumero IndovinaNumero.cpp
