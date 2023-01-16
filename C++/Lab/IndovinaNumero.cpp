@@ -1,14 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 
-#ifdef WIN32
-#include <Windows.h>
-
-if (IsDebuggerPresent())
-    ExitProcess(-1);
-#endif
 using namespace std;
-
 int main()
 {
     int numero = 0, tentativo = 0, tentativi = 0;

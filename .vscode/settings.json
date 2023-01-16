@@ -4,5 +4,8 @@
         "iostream": "cpp",
         "iosfwd": "cpp",
         "fstream": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "debugbreak"
+    ]
 }
