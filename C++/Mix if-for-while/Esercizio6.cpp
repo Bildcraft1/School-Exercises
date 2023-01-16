@@ -24,8 +24,6 @@ int main() {
     cout << endl;
     cout << "Numero di numeri generati: " << count << endl;
     cout << "Numero di numeri generati dopo che il numero corrente e' stato uguale al precedente: " << aftercount << endl;
-
-
     
     return 0;
 }
