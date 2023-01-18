@@ -3,9 +3,11 @@
         "ostream": "cpp",
         "iostream": "cpp",
         "iosfwd": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "numberbinarychecker": "cpp"
     },
     "cSpell.words": [
         "debugbreak"
-    ]
+    ],
+    "C_Cpp.errorSquiggles": "disabled"
 }
