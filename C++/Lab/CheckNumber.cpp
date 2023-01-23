@@ -61,7 +61,7 @@ int numberDivisors (int number, bool output)
 
             if (output == true)
             {
-                cout << i << endl;
+                cout << i << " ";
             }
         }
     }
@@ -103,8 +103,5 @@ int main()
 
     cout << "I divisori del numero inserito sono: " << endl;
     numberDivisors(input, true);
-
-    system("pause");
     return 0;
-
 }
