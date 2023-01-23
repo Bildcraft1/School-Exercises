@@ -24,20 +24,24 @@ bool checkChar(char input) {
     }
 }
 
-void rectangle(int d1, int d2) {
+int rectangleArea(int d1, int d2) {
     int area = d1 * d2;
-    int perimeter = (d1 * 2) + (d2 * 2);
-
-    cout << "Area: " << area << endl;
-    cout << "Perimetro: " << perimeter << endl;    
+    return area;
 }
 
-void triangle(int d1, int d2) {
-    int area = (d1 * d2) / 2;
-    int perimeter = d1 + d2 + sqrt((d1 * d1) + (d2 * d2));
+int rectanglePerimeter(int d1, int d2) {
+    int perimeter = (d1 * 2) + (d2 * 2);
+    return perimeter;
+}
 
-    cout << "Area: " << area << endl;
-    cout << "Perimetro: " << perimeter << endl;    
+int triangleArea(int d1, int d2) {
+    int area = (d1 * d2) / 2;
+    return area;
+}
+
+int trianglePerimeter(int d1, int d2) {
+    int perimeter = d1 + d2 + sqrt((d1 * d1) + (d2 * d2));
+    return perimeter;
 }
 
 int main() {
@@ -46,6 +50,7 @@ int main() {
 
     cout << "Inserisci D1: ";
     cin >> d1;
+
     while (!numberIsPositive(d1)) {
         cout << "D1 inferiore di 1" << endl;
         cout << "Inserisci D1: ";
@@ -54,6 +59,7 @@ int main() {
 
     cout << "Inserisci D2: ";
     cin >> d2;
+    
     while (!numberIsPositive(d2)) {
         cout << "D1 inferiore di 1" << endl;
         cout << "Inserisci D1: ";
@@ -70,11 +76,12 @@ int main() {
     }
 
     if (c == 'R' || c == 'r') {
-        rectangle(d1, d2);
+        cout << "Area: " << rectangleArea(d1, d2) << endl;
+        cout << "Perimetro: " << rectanglePerimeter(d1, d2) << endl;
     } else if (c == 'T' || c == 't') {
-        triangle(d1, d2);
+        cout << "Area: " << triangleArea(d1, d2) << endl;
+        cout << "Perimetro: " << trianglePerimeter(d1, d2) << endl;
     }
 
     return 0;
-
 }
