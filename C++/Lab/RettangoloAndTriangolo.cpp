@@ -73,7 +73,7 @@ int main() {
 
     while (checkChar(c) == false) {
         cout << "Errore, inserisci R o T" << endl;
-        cout << "Inserisci R per rettangolo o t per triangolo: ";
+        cout << "Inserisci R per rettangolo o T per triangolo: ";
         cin >> c;
     }
 
