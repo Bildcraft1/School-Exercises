@@ -24,6 +24,7 @@ bool checkChar(char input) {
     }
 }
 
+// Rectangle Part
 int rectangleArea(int d1, int d2) {
     int area = d1 * d2;
     return area;
@@ -34,6 +35,7 @@ int rectanglePerimeter(int d1, int d2) {
     return perimeter;
 }
 
+// Triangle part
 int triangleArea(int d1, int d2) {
     int area = (d1 * d2) / 2;
     return area;
