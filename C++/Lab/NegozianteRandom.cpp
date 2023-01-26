@@ -63,7 +63,6 @@ void tagliResto(float resto) {
         }
     }
 
-    cout << "Resto: " << endl;
     stampaRestoTaglio(500, cinquecento);
     stampaRestoTaglio(200, duecento);
     stampaRestoTaglio(100, cento);
@@ -100,7 +99,8 @@ int main()
 
         cout << "Resto: " << resto << endl;
         cout << endl;
-
+        
+        cout << "Tagli Resto: " << endl;
         tagliResto(resto);
 
         cliente++;
