@@ -24,6 +24,10 @@ float calcolaResto(float prezzo, float banconota)
     return banconota - prezzo;
 }
 
+void stampaRestoTaglio(int tipo, int counter) {
+	        cout << tipo << ": " << counter << endl;
+}
+
 void tagliResto(float resto) {
     // Cant use arrays 
     int cinquecento = 0, duecento = 0, cento = 0, cinquanta = 0, venti = 0, dieci = 0, cinque = 0, due = 0, uno = 0;
@@ -60,16 +64,17 @@ void tagliResto(float resto) {
     }
 
     cout << "Resto: " << endl;
-    cout << "500: " << cinquecento << endl;
-    cout << "200: " << duecento << endl;
-    cout << "100: " << cento << endl;
-    cout << "50: " << cinquanta << endl;
-    cout << "20: " << venti << endl;
-    cout << "10: " << dieci << endl;
-    cout << "5: " << cinque << endl;
-    cout << "2: " << due << endl;
-    cout << "1: " << uno << endl;
+    stampaRestoTaglio(500, cinquecento);
+    stampaRestoTaglio(200, duecento);
+    stampaRestoTaglio(100, cento);
+    stampaRestoTaglio(50, cinquanta);
+    stampaRestoTaglio(20, venti);
+    stampaRestoTaglio(10, dieci);
+    stampaRestoTaglio(5, cinque);
+    stampaRestoTaglio(2, due);
+    stampaRestoTaglio(1, uno);
 }
+
 
 int main()
 {

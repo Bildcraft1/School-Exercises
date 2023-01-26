@@ -5,6 +5,7 @@ using namespace std;
 int main()
 {
     int numero = 0, tentativo = 0, tentativi = 0;
+    bool perso=false
     srand(time(NULL));
 
     numero = rand() % 100 + 1;
@@ -15,17 +16,17 @@ int main()
         cin >> tentativo;
         tentativi++;
 
-        if (tentativi > 10)
+        if (tentativi > 10 && perso == false)
         {
             cout << "Sei scarso, get good" << endl;
-            break;
+            perso = true;
         }
 
-        if (tentativo > numero)
+        if (tentativo > numero && perso == false)
         {
             cout << "Troppo alto" << endl;
         }
-        else if (tentativo < numero)
+        else if (tentativo < numero && perso == false)
         {
             cout << "Troppo basso" << endl;
         }
