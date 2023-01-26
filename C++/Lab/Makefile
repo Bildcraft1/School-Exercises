@@ -30,8 +30,8 @@ RettangoloAndTriangolo: RettangoloAndTriangolo.cpp
 negozianterandom: NegozianteRandom.cpp
 	g++ -o build/negozianterandom NegozianteRandom.cpp
 
-negozianterandom: PrestitoCasa.cpp
-	g++ -o build/PrestitoCasa PrestitoCasa.cpp
-
 indovinanumero: IndovinaNumero.cpp
 	g++ -o build/indovinanumero IndovinaNumero.cpp
+
+SwapVariables: SwapVariables.cpp
+	g++ -o build/SwapVariables SwapVariables.cpp
