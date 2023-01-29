@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void swap(int &a, int &b) {
+void scambia(int &a, int &b) {
     int temp = a;
     a = b;
     b = temp;
@@ -17,7 +17,7 @@ int main() {
     cin >> b;
 
     cout << "Prima dello swap: " << a << " " << b << endl;
-    swap(a, b);
+    scambia(a, b);
     cout << "Dopo lo swap: " << a << " " << b << endl;
 
     return 0;
