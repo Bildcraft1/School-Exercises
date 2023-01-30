@@ -21,7 +21,7 @@ MOV AL, X ; Carico il primo addendo dall'indirizzo X
 ADD AL, Y ; Aggiungo il secondo addendo dall'indirizzo Y
 MOV S, AX ; Salvo la somma (inferiore a 256) nella variabile S
 MS_PRINT_INT S ; Stampo la variabile S (vedo 230)
-MS_SPAZIO S
+MS_ACAPO
 ; ESEMPIO 2: somma con risultato superiore a 256 (non mi basta un byte!)
 ; non considero il riporto
 MOV AH, 0 ; Azzero la parte alta del registro AX
@@ -29,7 +29,7 @@ MOV AL, X ; Carico il primo addendo dall'indirizzo X
 ADD AL, Z ; Aggiungo il secondo addendo dall'indirizzo Z
 MOV S , AX ; Salvo la somma (superiore a 256) nella variabile S
 MS_PRINT_INT S ; Stampo la variabile S (vedo 4: 00000001 00000100)
-MS_SPAZIO S
+MS_ACAPO
 ; ESEMPIO 3: somma con risultato superiore a 256 (non mi basta un byte!)
 ; considero il riporto
 MOV AH, 0 ; Azzero la parte alta del registro AX
@@ -38,6 +38,6 @@ ADD AL, Z ; Aggiungo il secondo addendo dall'indirizzo Z
 ADC AH, 0 ; Aggiungo il riporto (Carry)
 MOV S , AX ; Salvo la somma (superiore a 256) nella variabile S
 MS_PRINT_INT S ; Stampo la variabile S (vedo 260: 00000001 00000100)
-MS_SPAZIO S
+MS_ACAPO
 INT 20h ; Termina il programma - equivalente all'int 21h AL=00h
 END INIZIO
