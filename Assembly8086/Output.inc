@@ -8,7 +8,7 @@ MS_PUTC MACRO char
    POP AX     ; Ripristina valore nel registro
 ENDM
 
-MS_SPAZIO MACRO char
+MS_ACAPO MACRO void
    MOV dl, 10
    MOV ah, 02h
    INT 21h
@@ -17,7 +17,7 @@ MS_SPAZIO MACRO char
    INT 21h
 ENDM
 
-MS_PRINT_INT MACRO Numero
+ MS_PRINT_INT MACRO Numero
 Local _NonNegativo, _Stampa, _Loop
     PUSHA              ; Salva il contenuto dei registri nello stack
     MOV AX, Numero     ; mette il valore da stampare in AX
