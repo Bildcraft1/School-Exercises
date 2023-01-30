@@ -1,3 +1,9 @@
+/*
+1. Costruire una funzione che dato un numero intero M>0, restituisce la somma dei numeri x compresi tra 1 e M per i quali il valore (x*x)/(x-5) è maggiore di 10.
+2. Costruire una funzione che calcola la media di una sequenza di numeri casuali (compresi tra 10 e 30, estremi inclusi), la sequenza termina quando la media dei numeri generati supera il valore 20.
+3. Costruire una funzione che dato un numero intero K, conta quanti sono gli i*j pari (con i<K e j<=K) 
+*/
+
 #include <iostream>
 #include <cstdlib>
 
