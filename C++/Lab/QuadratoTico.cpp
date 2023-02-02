@@ -5,7 +5,7 @@
 using namespace std;
 
 void createCube(int size) {
-    for(int i = 0; i <= size; i++) {
+    for (int i = 0; i <= size; i++) {
         for (int s = 0; s <= size; s++) {
             cout << "*";
             if (s == size) {
