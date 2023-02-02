@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// Questo metodo carica il vettore con i valori inseriti dall'utente.
 void caricaVettore(int v[], int dim) {
     for (int i = 0; i < dim; i++) {
         cout << "Inserisci valore in posizione " << i+1 << ":" << endl;
@@ -10,12 +11,14 @@ void caricaVettore(int v[], int dim) {
     }
 }
 
+// Questo metodo stampa il contenuto del vettore.
 void leggiVettore(int v[], int dim) {
     for (int i = 0; i < dim; i++) {
         cout << v[i] << " ";
     }
 }
 
+// Questo metodo ritorna la posizione del valore all'interno del vettore.
 int ricercaVettore(int v[], int dim, int valore) {
     for (int i = 0; i < dim; i++) {
         if (v[i] == valore) {
@@ -25,6 +28,7 @@ int ricercaVettore(int v[], int dim, int valore) {
     return -1;
 }
 
+// Questo metodo ritorna il valore massimo all'interno del vettore.
 int maxVettore(int v[], int dim) {
     int vmax = 0;
     for (int i = 0; i < dim; i++) {
@@ -35,6 +39,7 @@ int maxVettore(int v[], int dim) {
     return vmax;
 }
 
+// Questo metodo ritorna il valore minimo all'interno del vettore.
 int minVettore(int v[], int dim) {
     int vmin = maxVettore(v, dim);
     for (int i = 0; i < dim; i++) {
@@ -45,6 +50,7 @@ int minVettore(int v[], int dim) {
     return vmin;
 }
 
+// Questo metodo ritorna la somma dei valori all'interno del vettore.
 int sommaVettore(int v[], int dim) {
     int somma = 0;
     for (int i = 0; i < dim; i++) {
@@ -53,10 +59,12 @@ int sommaVettore(int v[], int dim) {
     return somma;
 }
 
+// Questo metodo ritorna la media dei valori all'interno del vettore.
 double mediaVettore(int v[], int dim) {
     return sommaVettore(v, dim) / dim;
 }
 
+// Questo metodo inverte l'ordine dei valori all'interno del vettore.
 void invertiVettore(int v[], int dim, int invertedV[]) {
     for (int i = 0; i < dim; i++) {
         invertedV[i] = v[dim - i - 1];
