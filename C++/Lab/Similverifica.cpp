@@ -13,6 +13,7 @@ using namespace std;
 int sommaPari(int m) {
     int somma=0, temp=0;
     for (int i=1; i<=m; i++) {
+        
         // Controllo se i è diverso da 5 (per evitare divisione per 0)
         if (i != 5) {
             temp = (i*i)/(i-5);
