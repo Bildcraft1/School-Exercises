@@ -46,8 +46,10 @@ double mediaCasuale() {
 //  Costruire una funzione che dato un numero intero K, conta quanti sono gli i*j pari (con i<K e j<=K) 
 int contaK(int k) {
     int conta=0;
+    // Controlla tutti i valori di i e j minori di k
     for (int i=1; i<k; i++) {
         for (int j=1; j<=k; j++) {
+            // Controlla se i*j è pari
             if ((i*j) % 2 == 0) {
                 conta++;
             }
