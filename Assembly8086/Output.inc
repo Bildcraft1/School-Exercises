@@ -17,7 +17,7 @@ MS_ACAPO MACRO void
    INT 21h
 ENDM
 
- MS_PRINT_INT MACRO Numero
+MS_PRINT_INT MACRO Numero
 Local _NonNegativo, _Stampa, _Loop
     PUSHA              ; Salva il contenuto dei registri nello stack
     MOV AX, Numero     ; mette il valore da stampare in AX
