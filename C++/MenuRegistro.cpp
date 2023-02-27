@@ -19,10 +19,12 @@ int menu()
         cout << "6. Media voti" << endl;
         cout << "7. Miglior studente" << endl;
         cout << "8. Peggior studente" << endl;
+        cout << "9. Cancella studente" << endl;
+        cout << "10. Aggiungi studente" << endl;
         cout << "0. Esci" << endl;
         cout << "Scelta: ";
         cin >> scelta;
-    } while (scelta < 0 || scelta > 8);
+    } while (scelta < 0 || scelta > 10);
 
     return scelta;
 }
@@ -85,6 +87,74 @@ void exchangeSort(string V[], float voti[], int DIM)
                 V[i] = V[j];
                 V[j] = tempString;
             }
+        }
+    }
+}
+
+void cancellaStudente(string V[], int &DIM)
+{
+    string nome; //read the name
+    bool trovato = false; //found variable
+    cin.ignore();
+    cout << "Inserisci nome studente da cancellare: ";
+    getline(cin, nome);
+    for (int i = 0; i < DIM && !trovato; i++)
+    {
+        if (V[i] == nome)
+        {
+            V[i] = ""; //if the name is found, the string is set to ""
+            trovato = true;
+
+            for (int j = i; j < DIM - 1; j++)
+            {
+                V[j] = V[j + 1];
+            }
+        }
+    }
+
+    if (!trovato)
+    {
+        cout << "Studente non trovato!" << endl;
+    }
+    else
+    {
+        cout << "Studente cancellato!" << endl;
+        DIM--;
+    }
+}
+
+void aggiungiStudente(string V[], float voti[], int &DIM)
+{
+    string nome;
+    bool trovato = false;
+    cin.ignore();
+    cout << "Inserisci nome studente da aggiungere: ";
+    getline(cin, nome);
+
+    for (int i = 0; i < DIM && !trovato; i++)
+    {
+        if (V[i] == nome)
+        {
+            trovato = true;
+        }
+    }
+
+    if (trovato)
+    {
+        cout << "Studente già presente!" << endl;
+    }
+    else
+    {
+        V[DIM] = nome;
+        DIM++;
+        cout << "Studente aggiunto!" << endl;
+        cout << "Inserisci voto dello studente: ";
+        cin >> voti[DIM - 1];
+
+        while (voti[DIM - 1] < 0 || voti[DIM - 1] > 10)
+        {
+            cout << "Voto non valido! Inserisci voto dello studente: ";
+            cin >> voti[DIM - 1];
         }
     }
 }
@@ -155,11 +225,12 @@ int main()
         cin >> size;
     }
 
-    const int MAX_DIM = size + 10;
-    const int DIM = size;
-    string studenti[DIM], temp[DIM];
-    float voti[DIM];
+    const int MAX = 30;
+    int DIM = size;
+    string studenti[MAX], temp[MAX];
+    float voti[MAX];
     int scelta;
+
     do
     {
         scelta = menu();
@@ -190,6 +261,12 @@ int main()
             break;
         case 8:
             cout << "Lo studente peggiore e': " << peggiorStudente(studenti, voti, DIM) << endl;
+            break;
+        case 9:
+            cancellaStudente(studenti, DIM);
+            break;
+        case 10:
+            aggiungiStudente(studenti, voti, DIM);
             break;
         }
         pause();
