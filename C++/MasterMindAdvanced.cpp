@@ -68,6 +68,25 @@ bool checkCode(std::array<char, SIZE> &code, std::array<char, SIZE> &answer) {
     }
 }
 
+template<size_t SIZE>
+void bullsAndCows(std::array<char, SIZE> &code, std::array<char, SIZE> &answer) {
+    int bulls = 0, cows = 0;
+    for (int i = 0; i < SIZE; i++) {
+        if (code[i] == answer[i]) {
+            bulls++;
+        } else {
+            for (int j = 0; j < SIZE; j++) {
+                if (code[i] == answer[j]) {
+                    cows++;
+                }
+            }
+        }
+    }
+
+    std::cout << "Colori in posizione giusta: " << bulls << std::endl;
+    std::cout << "Colori giusti ma in posizione sbagliata: " << cows << std::endl;
+}
+
 template<typename Iterator>
 void printCode(Iterator begin, Iterator end) {
     while (begin != end) {
@@ -79,7 +98,7 @@ void printCode(Iterator begin, Iterator end) {
 
 int main() {
     std::array<char, 4> code, answer;
-    int maxTries = 1, tries = 0;
+    int maxTries = 10, tries = 0;
     bool win = false;
     codiceCasuale(code);
 
@@ -96,6 +115,8 @@ int main() {
         } else {
             tries++;
         }
+
+        bullsAndCows(code, answer);
     }
 
     if (win) {
