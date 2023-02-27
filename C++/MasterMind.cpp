@@ -1,12 +1,18 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <random>
 
 using namespace std;
 
+random_device rd;
+mt19937 rng(rd());
+
 void codiceCasuale(string code[], int SIZE) {
+    uniform_int_distribution<int> xDist(0, 8);
+
     for (int i = 0; i < SIZE; i++) {
-        int random = rand() % 8;
+        int random = xDist(rng);
         switch (random) {
             case 0:
                 code[i] = "R";
@@ -62,7 +68,6 @@ void inserisciCodice(string answer[], int SIZE) {
 }
 
 int main() {
-    srand(time(NULL));
     const int SIZE = 4;
     string code[SIZE];
     string answer[SIZE];
@@ -73,7 +78,7 @@ int main() {
 
     for (int i = 0; i < SIZE; i++) {
         cout << code[i] << " ";
-    }
+    }   
 
     cout << endl;
 
