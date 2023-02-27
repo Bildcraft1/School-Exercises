@@ -1,6 +1,6 @@
 #include <cstdlib>
 
-void clear()
+void clearScreen()
 {
 #ifdef _WIN32
     system("cls");

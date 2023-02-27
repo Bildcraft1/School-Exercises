@@ -1,9 +1,20 @@
 #include <iostream>
 #include <array>
 #include <random>
+#include "utils/systemutils.h"
 
 std::random_device rd;
 std::mt19937 rng(rd());
+
+int menu() {
+    int choice;
+    std::cout << "1. Gioca" << std::endl;
+    std::cout << "2. Esci" << std::endl;
+    std::cout << "Scelta: ";
+    std::cout.flush();
+    std::cin >> choice;
+    return choice;
+}
 
 template<size_t SIZE>
 void codiceCasuale(std::array<char, SIZE> &code) {
@@ -98,7 +109,7 @@ void printCode(Iterator begin, Iterator end) {
 
 int main() {
     std::array<char, 4> code, answer;
-    int maxTries = 10, tries = 0;
+    int maxTries = 10, tries = 0, input = 0;
     bool win = false;
     codiceCasuale(code);
 
@@ -107,7 +118,15 @@ int main() {
     }
     std::cout << std::endl;
 
+    input = menu();
+
+    if(input >= 2) {
+        return 0;
+    }
+
     while (tries < maxTries && !win) {
+        clearScreen();
+
         inserisciCodice(answer);
 
         if(checkCode(code, answer)) {
@@ -117,6 +136,11 @@ int main() {
         }
 
         bullsAndCows(code, answer);
+
+        if (!win) {
+            std::cout << "Tentativi rimanenti: " << maxTries - tries << std::endl;
+            pause();
+        }
     }
 
     if (win) {
