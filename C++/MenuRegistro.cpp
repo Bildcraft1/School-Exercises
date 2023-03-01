@@ -10,7 +10,7 @@ int menu()
     int scelta;
     do
     {
-        clear();
+        clearScreen();
         cout << "1. Inserisci studente" << endl;
         cout << "2. Inserisci voto" << endl;
         cout << "3. Ordina studenti" << endl;
