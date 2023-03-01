@@ -14,21 +14,22 @@ set /p action=Quale azione vuoi eseguire? (C)ancellare, (R)inominare o (S)postar
 
 IF /I "%action%"=="C" (
     REM Cancella i file selezionati
-    set /p ext="Inserisci l'estensione del file che vuoi cancellare (senza il punto) = "
-    del %folder%\*.%ext%
+    set /p ext=Inserisci nome file + estensione [supporta anche wildcards] 
+    echo %folder%\%ext%
+    del %folder%\%ext%
     goto more
 ) ELSE IF /I "%action%"=="R" (
     REM Rinomina i file selezionati
-    set /p ext="Inserisci l'estensione del file che vuoi rinominare (senza il punto) = "
-    set /p oldname="Inserisci il nome del file che vuoi rinominare = "
-    set /p newname="Inserisci il nuovo nome del file = "
+    set /p ext=Inserisci l'estensione file che vuoi rinominare [senza il punto]  
+    set /p oldname=Inserisci il nome file che vuoi rinominare 
+    set /p newname=Inserisci il nuovo nome file 
     ren %folder%\%oldname%.%ext% %newname%.%ext%
     goto more
 ) ELSE IF /I "%action%"=="S" (
     REM Sposta i file selezionati
-    set /p ext="Inserisci l'estensione del file che vuoi spostare (senza il punto) = "
-    set /p oldpath="Inserisci il percorso completo del file che vuoi spostare = "
-    set /p newpath="Inserisci il percorso completo della nuova cartella di destinazione = "
+    set /p ext=Inserisci l'estensione file che vuoi spostare [senza il punto] 
+    set /p oldpath=Inserisci il percorso completo file che vuoi spostare 
+    set /p newpath=Inserisci il percorso completo della nuova cartella di destinazione 
     move %folder%\%oldpath%.%ext% %newpath%
     goto more
 )
