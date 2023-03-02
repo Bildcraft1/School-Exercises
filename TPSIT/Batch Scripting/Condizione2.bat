@@ -35,7 +35,6 @@ IF /I "%action%"=="C" (
 )
 
 :more
-
 REM Chiede all'utente se vuole eseguire altre operazioni
 set /p more="Vuoi eseguire altre operazioni? (S)i o (N)o? "
 

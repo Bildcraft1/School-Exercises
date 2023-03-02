@@ -11,7 +11,6 @@ int menu()
     cout << "1. Gioca" << endl;
     cout << "2. Esci" << endl;
     cout << "Scelta: ";
-    cout.flush();
     cin >> choice;
     return choice;
 }
@@ -51,22 +50,7 @@ void codiceCasuale(string code[], int SIZE) {
     }
 }
 
-bool checkCode(string code[], string answer[], int SIZE) {
-    int count = 0;
-    for (int i = 0; i < SIZE; i++) {
-        if (code[i] == answer[i]) {
-            count++;
-        }
-    }
-
-    if (count == SIZE) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-void checkPos(string code[], string answer[], int SIZE) {
+bool checkPos(string code[], string answer[], int SIZE) {
     int posGiusta = 0, posErrata = 0;
     for (int i = 0; i < SIZE; i++)
     {
@@ -88,6 +72,15 @@ void checkPos(string code[], string answer[], int SIZE) {
 
     cout << "Colori in posizione giusta: " << posGiusta << endl;
     cout << "Colori giusti ma in posizione sbagliata: " << posErrata << endl;
+
+    if (posGiusta == SIZE)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void stampaArray(string array[], int SIZE) {
@@ -159,7 +152,7 @@ int main() {
 
             inserisciCodice(answer, SIZE);
 
-            if (checkCode(code, answer, SIZE))
+            if (checkPos(code, answer, SIZE))
             {
                 win = true;
             }
@@ -167,8 +160,6 @@ int main() {
             {
                 tries++;
             }
-
-            checkPos(code, answer, SIZE);
 
             if (!win)
             {
