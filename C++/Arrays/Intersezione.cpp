@@ -9,10 +9,10 @@ std::random_device rd;
 std::mt19937 rng(rd());
 
 void caricaArrayRandom(int array[], int size) {
+    uniform_int_distribution<int> random_number(0, 10);
     // Carico l'array in modo random controllando che non ci siano valori uguali, se c'è un valore uguale genero un nuovo numero
     for (int i = 0; i < size; i++) {
         bool isDuplicate = false;
-        uniform_int_distribution<int> random_number(0, 10);
         array[i] = random_number(rng);
         for (int j = 0; j < i; j++) {
             if (array[i] == array[j] && !isDuplicate) {
@@ -120,13 +120,6 @@ int main() {
 
     sortArray(insieme1, sizeInsiemi);
     sortArray(insieme2, sizeInsiemi);
-
-    cout << "Insieme 1: " << endl;
-    leggiArray(insieme1, sizeInsiemi);
-    cout << endl;
-
-    cout << "Insieme 2: " << endl;
-    leggiArray(insieme2, sizeInsiemi);
 
     trovaIntersezioni(insieme1, insieme2, intersezione, sizeInsiemi, sizeIntersezione);
 
