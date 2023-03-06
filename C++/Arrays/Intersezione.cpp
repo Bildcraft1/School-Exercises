@@ -12,7 +12,7 @@ void caricaArrayRandom(int array[], int size) {
     // Carico l'array in modo random controllando che non ci siano valori uguali, se c'è un valore uguale genero un nuovo numero
     for (int i = 0; i < size; i++) {
         bool isDuplicate = false;
-        uniform_int_distribution<int> random_number(0, 50);
+        uniform_int_distribution<int> random_number(0, 10);
         array[i] = random_number(rng);
         for (int j = 0; j < i; j++) {
             if (array[i] == array[j] && !isDuplicate) {
