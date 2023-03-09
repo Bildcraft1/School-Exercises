@@ -171,6 +171,6 @@ ECHO[
 ECHO                         HELP
 ECHO[
 ECHO --------------------------------------------------
-ECHO Press (+) For Sum, (-) For Sub, (/) for Division, (*) for Multiply.
+ECHO Press (+) For Sum, (-) For Sub, (/) for Division, (*) for Multiply, (~) for Exit, (M) for Power, (P) for Scalar Product
 PAUSE
 GOTO:TOP
