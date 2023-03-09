@@ -10,7 +10,7 @@ REM Visualizza i file e i relativi attributi nella cartella selezionata
 dir %folder%
 
 REM Chiede all'utente quale azione eseguire
-set /p action=Quale azione vuoi eseguire? (C)ancellare, (R)inominare o (S)postare?
+set /p action=Quale azione vuoi eseguire? (C)ancellare, (R)inominare o (S)postare o (A) per attirbuti? 
 
 IF /I "%action%"=="C" (
     REM Cancella i file selezionati
@@ -32,6 +32,22 @@ IF /I "%action%"=="C" (
     set /p newpath=Inserisci il percorso completo della nuova cartella di destinazione 
     move %folder%\%oldpath%.%ext% %newpath%
     goto more
+) ELSE IF /I "%action%"=="E" (
+    REM Esce dal file batch
+    exit
+) ELSE IF /I "%action%"=="A" (
+    REM Modifica attirbuti dei file selezionati
+    set /p ext=Inserisci l'estensione file che vuoi modificare [senza il punto]
+    set /p oldname=Inserisci il nome file che vuoi modificare
+    set /p newname=Inserisci il nuovo nome file
+    set /p newattr=Inserisci i nuovi attributi
+    ren %folder%\%oldname%.%ext% %newname%.%ext%
+    attrib %folder%\%newname%.%ext% %newattr%
+    goto more
+) ELSE (
+    REM Se l'utente non ha inserito una delle opzioni, esce dal file batch
+    echo Hai inserito un'opzione non valida
+    exit
 )
 
 :more
