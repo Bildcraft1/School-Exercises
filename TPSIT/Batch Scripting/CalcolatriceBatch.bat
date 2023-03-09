@@ -142,7 +142,6 @@ for /l %%i in (1, 1, %size1%) do (
   set /a element_product=!arr1[%%i]!*!arr2[%%i]!
   set /a scalar_product+=!element_product!
 )
-
 echo Scalar product: %scalar_product%
 PAUSE
 GOTO:TOP
