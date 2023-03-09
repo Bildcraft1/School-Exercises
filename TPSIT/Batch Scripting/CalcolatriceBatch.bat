@@ -25,7 +25,7 @@ ECHO    M = POWER
 ECHO[
 ECHO    P = Scalar Product of two vectors
 echo[
-ECHO    ~ = Exit
+ECHO    E = Exit
 ECHO[
 ECHO[
 ECHO ----------------------------------------------------
@@ -35,7 +35,7 @@ IF %ch% EQU + GOTO:SUM
 IF %ch% EQU - GOTO:SUB
 IF %ch% EQU / GOTO:DIV
 IF %ch% EQU * GOTO:MUL
-IF %ch% EQU ~ GOTO:EXI
+IF %ch% EQU E GOTO:EXI
 IF %ch% EQU M GOTO:ESP
 IF %ch% EQU P GOTO:PRO
 IF %ch% GTR . GOTO:Hel
