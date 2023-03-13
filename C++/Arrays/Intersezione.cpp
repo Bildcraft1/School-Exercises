@@ -9,7 +9,7 @@ std::random_device rd;
 std::mt19937 rng(rd());
 
 void caricaArrayRandom(int array[], int size) {
-    uniform_int_distribution<int> random_number(0, 10);
+    uniform_int_distribution<int> random_number(0, 30);
     // Carico l'array in modo random controllando che non ci siano valori uguali, se c'è un valore uguale genero un nuovo numero
     for (int i = 0; i < size; i++) {
         bool isDuplicate = false;
