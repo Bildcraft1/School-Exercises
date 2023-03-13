@@ -50,6 +50,62 @@ string inserisciStringa(string source, string s2, int pos) {
     return sf;
 }
 
+bool isInt(string s, int SIZE) {
+    bool flag = true;
+
+    for (int i = 0; i < SIZE && flag; i++) {
+        if (!(s[i] >= '0' && s[i] <= '9') && s[i] != '-' && s[i] != '+') {
+            flag = false;
+        }
+    }
+
+    return flag;
+}
+
+bool isDouble(string s, int SIZE) {
+    bool flag = true;
+
+    for (int i = 0; i < SIZE && flag; i++) {
+        if (!(s[i] >= '0' && s[i] <= '9') && s[i] != '-' && s[i] != '+' && s[i] != '.') {
+            flag = false;
+        }
+    }
+
+    return flag;
+}
+
+int convertToInt(string s, int size) {
+    bool negativo = false;
+    if (s[0] == '-') {
+        negativo = true;
+    }
+
+    int numero = 0;
+    int potenza = 1;
+
+    for (int i = size-1; i >= 0; i--) {
+        if (s[i] != '-' && s[i] != '+') {
+            numero += (s[i] - '0') * potenza;
+            potenza *= 10;
+        }
+    }
+
+    if (negativo) {
+        numero *= -1;
+    }
+
+    return numero;
+}
+
+double convertToDouble(string s, int SIZE) {
+    double numero = 0;
+    
+    // TBD
+    numero = stod(s);
+
+    return numero;
+}
+
 string estraiStringa(string source, int pos, int lunghezza) {
     string sf = "";
 
@@ -62,6 +118,7 @@ string estraiStringa(string source, int pos, int lunghezza) {
 
 int main() {
     string s1, s2;
+    unsigned int n = 0;
     cout << "Inserisci una stringa: ";
     getline(cin, s1);
 
@@ -72,6 +129,21 @@ int main() {
     cout << endl;
 
     cout << estraiStringa("Pippo Pluto Paperino", 6, 5);
+
+    isInt(s1, s1.length());
+
+    if (isInt(s1, s1.length())) {
+        cout << convertToInt(s1, s1.length()) << endl;
+    } else {
+        cout << "La stringa non contiene un numero intero" << endl;
+    }
+
+    if (isDouble(s1, s1.length())) {
+        cout << "La stringa è un double" << endl;
+        cout << convertToDouble(s1, s1.length()) << endl;
+    } else {
+        cout << "Non è un double" << endl;
+    }
 
     return 0;
 }
