@@ -10,20 +10,12 @@ void toLowercase(string &s) {
     }
 }
 
-int lunghezzaStringa(string s) {
-    int lunghezza = 0;
-
-    while (s[lunghezza++] != '\0');
-
-    return lunghezza;
-}
-
 int contaVocali(string s) {
     int vocali = 0;
 
     toLowercase(s);
 
-    for (int i = 0; i < lunghezzaStringa(s); i++) {
+    for (int i = 0; i < s.length(); i++) {
         if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u'){
             vocali++;
         }
@@ -43,7 +35,7 @@ string inserisciStringa(string source, string s2, int pos) {
     sf += s2;
 
     // Aggiungo il resto della stringa
-    for (int i = pos; i < lunghezzaStringa(source); i++) {
+    for (int i = pos; i < source.length(); i++) {
         sf += source[i];
     }
 
@@ -97,10 +89,10 @@ int convertToInt(string s, int size) {
     return numero;
 }
 
-double str_to_double(const std::string& str)
+double convertToDouble(const string& str)
 {
     if (str.length() == 0)
-        throw std::invalid_argument("Cannot convert empty string to double.");
+        throw invalid_argument("Cannot convert empty string to double.");
     char sign = 1;
     double abs = 0;
     size_t i = 0;
@@ -116,7 +108,7 @@ double str_to_double(const std::string& str)
             break;
         }
         if (str[i] < '0' || str[i] > '9')
-            std::invalid_argument("Invalid character found.");
+            invalid_argument("Invalid character found.");
         abs = 10 * abs + (str[i] - '0');
         ++i;
     }
@@ -124,7 +116,7 @@ double str_to_double(const std::string& str)
     while (i < str.length())
     {
         if (str[i] < '0' || str[i] > '9')
-            std::invalid_argument("Invalid character found.");
+            invalid_argument("Invalid character found.");
         abs += value * (str[i] - '0');
         value /= 10;
         ++i;
@@ -142,9 +134,46 @@ string estraiStringa(string source, int pos, int lunghezza) {
     return sf;
 }
 
+int contaRicorrenze(const string& source, const string& query) {
+    int counter = 0;
+    string s = query + "$" + source;
+    int z[s.length()];
+    int l = 0, r = 0;
+    for (int i = 1; i < s.length(); i++) {
+        if (i > r) {
+            l = r = i;
+            while (r < s.length() && s[r-l] == s[r]) {
+                r++;
+            }
+            z[i] = r-l;
+            r--;
+        } else {
+            int k = i-l;
+            if (z[k] < r-i+1) {
+                z[i] = z[k];
+            } else {
+                l = i;
+                while (r < s.length() && s[r-l] == s[r]) {
+                    r++;
+                }
+                z[i] = r-l;
+                r--;
+            }
+        }
+    }
+
+    for (int i = 0; i < s.length(); i++) {
+        if (z[i] == query.length()) {
+            counter++;
+        }
+    }
+
+    return counter;
+}
+
+
 int main() {
     string s1, s2;
-    unsigned int n = 0;
     cout << "Inserisci una stringa: ";
     getline(cin, s1);
 
@@ -166,10 +195,13 @@ int main() {
 
     if (isDouble(s1, s1.length())) {
         cout << "La stringa è un double" << endl;
-        cout << str_to_double(s1) << endl;
+        cout << convertToDouble(s1) << endl;
     } else {
         cout << "Non è un double" << endl;
     }
+
+
+    cout << contaRicorrenze("Pippo Pluto Paperino Pippo Marco Pippo", "Pippo");
 
     return 0;
 }
