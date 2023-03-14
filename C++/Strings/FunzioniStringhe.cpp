@@ -97,13 +97,39 @@ int convertToInt(string s, int size) {
     return numero;
 }
 
-double convertToDouble(string s, int SIZE) {
-    double numero = 0;
-    
-    // TBD
-    numero = stod(s);
-
-    return numero;
+double str_to_double(const std::string& str)
+{
+    if (str.length() == 0)
+        throw std::invalid_argument("Cannot convert empty string to double.");
+    char sign = 1;
+    double abs = 0;
+    size_t i = 0;
+    if (str[i] == '-')
+        sign = -1;
+    if (str[i] == '+' || str[i] == '-')
+        ++i;
+    while (i < str.length())
+    {
+        if (str[i] == '.')
+        {
+            ++i;
+            break;
+        }
+        if (str[i] < '0' || str[i] > '9')
+            std::invalid_argument("Invalid character found.");
+        abs = 10 * abs + (str[i] - '0');
+        ++i;
+    }
+    double value = 0.1;
+    while (i < str.length())
+    {
+        if (str[i] < '0' || str[i] > '9')
+            std::invalid_argument("Invalid character found.");
+        abs += value * (str[i] - '0');
+        value /= 10;
+        ++i;
+    }
+    return abs * sign;
 }
 
 string estraiStringa(string source, int pos, int lunghezza) {
@@ -140,7 +166,7 @@ int main() {
 
     if (isDouble(s1, s1.length())) {
         cout << "La stringa è un double" << endl;
-        cout << convertToDouble(s1, s1.length()) << endl;
+        cout << str_to_double(s1) << endl;
     } else {
         cout << "Non è un double" << endl;
     }
