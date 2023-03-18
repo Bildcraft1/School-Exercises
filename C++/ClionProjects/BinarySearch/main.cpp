@@ -53,7 +53,20 @@ int main() {
     // Binary Search
     cout << endl;
     cout << "Inserisci il valore da cercare: ";
-    cin >> value;
-    cout << "Il valore " << value << " e' stato trovato in posizione:" << binarySearch<10>(array, value);
+
+    do {
+        cin >> value;
+        if (value < 0 || value > 30) {
+            cout << "Inserisci un valore compreso tra 0 e 30: ";
+        }
+    } while (value < 0 || value > 30);
+
+
+    if (binarySearch<10>(array, value) == -1) {
+        cout << "Il valore " << value << " non e' stato trovato";
+    } else {
+        cout << "Il valore " << value << " e' stato trovato in posizione:" << binarySearch<10>(array, value);
+    }
+
     return 0;
 }
