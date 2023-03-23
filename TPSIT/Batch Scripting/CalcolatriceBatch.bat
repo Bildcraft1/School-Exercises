@@ -3,6 +3,7 @@ setlocal EnableDelayedExpansion
 ECHO OFF
 CLS
 ECHO -by Ravi Raturi, XI B Nirmal Deepmala Pagarani Public School Shyampur, Rishikesh
+echo Calcolatrice avviata ----- %date% >> log.txt
 :TOP
 color 3f
 Cls
@@ -30,6 +31,7 @@ ECHO[
 ECHO[
 ECHO ----------------------------------------------------
 ECHO[
+set date = date /t
 SET/P ch=" Enter Symbol "
 IF %ch% EQU + GOTO:SUM
 IF %ch% EQU - GOTO:SUB
@@ -47,6 +49,7 @@ ECHO                         SUM
 ECHO[
 ECHO ---------------------------------------------------
 ECHO[
+echo Somma >> log.txt
 set /p A=" Enter First Number = "
 ECHO[
 set /p B=" Enter Second Number = "
@@ -54,6 +57,7 @@ SET /A C=A+B
 ECHO[
 ECHO ---------------------------------------------------
 ECHO %A%+%B%=%C%
+echo %A%+%B%=%C% >> log.txt 
 PAUSE
 GOTO:TOP
 :SUB
@@ -64,6 +68,7 @@ ECHO                     SUBTRACTION
 ECHO[
 ECHO ---------------------------------------------------
 ECHO[
+echo Sottrazione >> log.txt
 set /p A=" Enter First Number = "
 ECHO[
 set /p B=" Enter Second Number = "
@@ -71,6 +76,7 @@ SET /A C=A-B
 ECHO[
 ECHO ---------------------------------------------------
 ECHO %A%-%B%=%C%
+echo %A%-%B%=%C% >> log.txt
 PAUSE
 GOTO:TOP
 :DIV
@@ -81,6 +87,7 @@ ECHO                      DIVISION
 ECHO[
 ECHO -----------------------------------------------------
 ECHO[
+echo Divisione >> log.txt
 set /p A=" Enter First Number = "
 ECHO[
 set /p B=" Enter Second Number = "
@@ -88,6 +95,7 @@ SET /A C=A/B
 ECHO[
 ECHO -----------------------------------------------------
 ECHO %A%/%B%=%C%
+echo %A%/%B%=%C% >> log.txt
 PAUSE
 GOTO:TOP
 :ESP
@@ -98,6 +106,7 @@ ECHO                      POWER
 ECHO[
 ECHO -----------------------------------------------------
 ECHO[
+echo Potenza >> log.txt
 set /p x=" Enter First Number = "
 ECHO[
 set /p n=" Enter Second Number = "
@@ -106,6 +115,7 @@ ECHO[
 ECHO -----------------------------------------------------
 FOR /L %%i IN (1,1,%n%) DO SET /A result*=x
 ECHO %x% to the power %n% is %result%
+echo %x% alla %n% e' %result% >> log.txt
 PAUSE
 GOTO:TOP
 :PRO
@@ -116,11 +126,14 @@ ECHO                      SCALAR PRODUCT
 ECHO[
 ECHO -----------------------------------------------------
 REM Prompt the user for the array sizes
-set /p size1=Enter the size of array 1: 
-set /p size2=Enter the size of array 2: 
+echo Prodotto Scalare >> log.txt
+set /p size1=Enter the size of array 1:
+echo Grandezza array %size1% >> log.txt
 REM Prompt the user for the array elements
 set /p arr1=Enter the elements of array 1 (separated by spaces): 
 set /p arr2=Enter the elements of array 2 (separated by spaces): 
+echo Array 1: %arr1% >> log.txt
+echo Array 2: %arr2% >> log.txt
 REM Convert the space-separated input strings into arrays
 set i=0
 for %%e in (%arr1%) do (
@@ -133,7 +146,7 @@ set i=0
 for %%e in (%arr2%) do (
   set /a i+=1
   set arr2[!i!]=%%e
-  if !i! equ %size2% goto :done2
+  if !i! equ %size1% goto :done2
 )
 :done2
 REM Calculate the scalar product
@@ -143,6 +156,7 @@ for /l %%i in (1, 1, %size1%) do (
   set /a scalar_product+=!element_product!
 )
 echo Scalar product: %scalar_product%
+echo Prodotto scalare: %scalar_product% >> log.txt
 PAUSE
 GOTO:TOP
 :MUL
@@ -153,6 +167,7 @@ ECHO                    MULTIPICATION
 ECHO[
 ECHO ----------------------------------------------------
 ECHO[
+echo Moltiplicazione
 set /p A=" Enter First Number = "
 ECHO[
 set /p B=" Enter Second Number = "
@@ -160,6 +175,7 @@ SET /A C=A*B
 ECHO[
 ECHO ----------------------------------------------------
 ECHO %A%*%B%=%C%
+echo %A%*%B%=%C% >> log.txt
 PAUSE
 GOTO:TOP
 :EXI
