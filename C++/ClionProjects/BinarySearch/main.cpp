@@ -7,8 +7,7 @@ using namespace std;
 std::random_device rd;
 std::mt19937 rng(rd());
 
-template<size_t size>
-void caricaArray(int array[]) {
+void caricaArray(int array[], int size) {
     std::uniform_int_distribution<int> random_number(0, 30);
     for (int i = 0; i < size; i++) {
         int random = random_number(rng);
@@ -16,15 +15,13 @@ void caricaArray(int array[]) {
     }
 }
 
-template<size_t size>
-void stampaArray(int array[]) {
+void stampaArray(int array[], int size) {
     for (int i = 0; i < size; i++) {
         cout << array[i] << " ";
     }
 }
 
-template<size_t size>
-int binarySearch(const int array[], int value) {
+int binarySearch(const int array[], int value, int size) {
     int inf = 0, sup = size-1, center = (inf+sup)/2;
 
     while (inf <= sup) {
@@ -44,11 +41,11 @@ int binarySearch(const int array[], int value) {
 int main() {
     int array[10], value;
     std::cout << "Binary Search" << std::endl;
-    caricaArray<10>(array);
-    stampaArray<10>(array);
+    caricaArray(array, 10);
+    stampaArray(array, 10);
     sort(array, array+10);
     cout << endl;
-    stampaArray<10>(array);
+    stampaArray(array, 10);
 
     // Binary Search
     cout << endl;
@@ -61,11 +58,12 @@ int main() {
         }
     } while (value < 0 || value > 30);
 
+    int result = binarySearch(array, value, 10);
 
-    if (binarySearch<10>(array, value) == -1) {
-        cout << "Il valore " << value << " non e' stato trovato";
+    if (result == -1) {
+        cout << "Il valore " << value << " non e' stato trovato" << endl;
     } else {
-        cout << "Il valore " << value << " e' stato trovato in posizione:" << binarySearch<10>(array, value);
+        cout << "Il valore " << value << " e' stato trovato in posizione:" << (result+1) << endl;
     }
 
     return 0;
