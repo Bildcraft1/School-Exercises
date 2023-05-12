@@ -14,7 +14,6 @@ struct pilota {
     int punti;
 };
 
-
 void inserisciPiloti(pilota piloti[], int &n, const int &SIZE) {
     for(int i = 0; i < SIZE; i++) {
         cout << "Inserisci nome pilota: ";
@@ -87,18 +86,27 @@ void stampaTabellaPunti(int arrivi[R][C], const int &SIZE, pilota piloti[], cons
 void calcolaPunteggi(int arrivi[R][C], const int &SIZE, pilota piloti[], const int &PSIZE, string circuiti[], const int &CSIZE) {
     for(int i = 0; i < SIZE; i++) {
         for(int j = 0; j < SIZE; j++) {
-            if (arrivi[i][j] == 1) {
-                piloti[i].punti += 6;
-            } else if (arrivi[i][j] == 2) {
-                piloti[i].punti += 5;
-            } else if (arrivi[i][j] == 3) {
-                piloti[i].punti += 4;
-            } else if (arrivi[i][j] == 4) {
-                piloti[i].punti += 3;
-            } else if (arrivi[i][j] == 5) {
-                piloti[i].punti += 2;
-            } else if (arrivi[i][j] == 6) {
-                piloti[i].punti += 1;
+            switch (arrivi[i][j]) {
+                case 1:
+                    piloti[i].punti += 6;
+                    break;
+                case 2:
+                    piloti[i].punti += 5;
+                    break;
+                case 3:
+                    piloti[i].punti += 4;
+                    break;
+                case 4:
+                    piloti[i].punti += 3;
+                    break;
+                case 5:
+                    piloti[i].punti += 2;
+                    break;
+                case 6:
+                    piloti[i].punti += 1;
+                    break;
+                default:
+                    break;
             }
         }
     }
