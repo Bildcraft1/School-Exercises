@@ -25,6 +25,22 @@ void inserisciPiloti(pilota piloti[], int &n, const int &SIZE) {
     }
 }
 
+void scambia(pilota &p1, pilota &p2) {
+    pilota temp = p1;
+    p1 = p2;
+    p2 = temp;
+}
+
+void ordinaPerNome(pilota piloti[], const int &n, const int &size) {
+    for(int i = 0; i < size; i++) {
+        for (int j = i + 1; j < size; j++) {
+            if (piloti[i].nome > piloti[j].nome) {
+                scambia(piloti[i], piloti[j]);
+            }
+        }
+    }
+}
+
 void inserisciCircuiti(string circuiti[], const int &SIZE) {
     for(int i = 0; i < SIZE; i++) {
         cout << "Inserisci nome circuito: ";
